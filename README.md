@@ -8,11 +8,31 @@ Provide clean and easy way to share state between components.
 
 Tap into the inner workings of react functional components 
 
-## What is the Context API
+### What is the Context API
 
 The context API gives us a way to share state up and down a component tree quite easily. Giving us a central place to store data or State and then share it between components, without having to pass it down as props.
 
 You can do the same using props, but it can get a little bit messy especially as your component trees an application becomes bigger.
+
+## Adding a context & provider
+
+## Accessing Context
+
+Once the context provider is wrapping the components, there's a couple different ways we can do this. 
+
+### Context Type
+
+This way **can be used in a class component but not in functional components**. The way we use this is by:
+
+	import React, { Component } from "react";
+	import { ThemeContext } from "../contexts/ThemeContext";
+	
+	class Navbar extends Component {
+	  static contextType = ThemeContext;
+	  render() {
+	  ...
+
+Doing this procedure <code>this.context</code>will be set at run time to the current value of the given Context.
 
 ## References
 
