@@ -32,7 +32,34 @@ This way **can be used in a class component but not in functional components**. 
 	  render() {
 	  ...
 
-Doing this procedure <code>this.context</code>will be set at run time to the current value of the given Context. In this case the 
+Doing this procedure <code>this.context</code>will be set at run time to the current value of the given Context. Once the context is available: 
+
+	 const { isLightTheme, light, dark } = this.context;
+
+### Context Consumer
+
+This approach can also be used in functional components, another benefit of this approach is you can use multiples contexts in one component. To use Context Consumer is necessary to import the context, in our case ThemeContext.
+
+	import { ThemeContext } from "../contexts/ThemeContext";
+
+Then is necessary wrap the content will recive the context, with the tag <code>ThemeContext.Consumer</code>. This components recive a function as child, the context is passed as function parameter. Like the example: 
+
+	<ThemeContext.Consumer>
+        {(context) => {
+          const { isLightTheme, light, dark } = context;
+          const theme = isLightTheme ? light : dark;
+          return (
+            <nav style={{ background: theme.ui, color: theme.syntax }}>
+              <h1>Cibtext app</h1>
+              <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+              </ul>
+            </nav>
+          );
+        }}
+      </ThemeContext.Consumer>
 
 ## References
 
