@@ -1,20 +1,18 @@
-# React Context & Hooks 
-## Contents 
+# Contents 
+- 	[Context API](#)
+	-	[What is ](#)
+	-	[Create a context](#)
+	-	[Accessing context](#)
+	-	[Updating context](#)
+	-	[Creating multiple contexts](#)
+- 	[React Hooks](#)
 
--	[What is ](#)
--	[Create a context](#)
--	[Accessing context](#)
--	[Updating context](#)
--	[Creating multiple contexts](#)
+
+# Context API
 
 ## Introduction 
-#### Context API
 
-Provide clean and easy way to share state between components. 
 
-#### Hooks 
-
-Tap into the inner workings of react functional components 
 
 ### What is the Context API
 
@@ -68,6 +66,26 @@ Then is necessary wrap the content will recive the context, with the tag <code>T
           );
         }}
       </ThemeContext.Consumer>
+
+## Creating multiple contexts
+
+## Consuming multiple contexts
+
+
+# React Hooks
+
+Hooks are basically hooks are just special functions and they allow us to do things inside functional components in react that normally we'd only be able to do inside a class components for example using state normally we could only, do that in a class component, but using a hook we can access states in functional components.
+
+There are different hooks in react which do different things, for example 
+
+<code>useState()</code> 
+Use state within a functional component 
+
+<code>useEffect()</code>
+run code when a component renders (or re-renders)
+
+<code>useContext()</code>
+Consume context in a functional component.
 
 ## References
 
