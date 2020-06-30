@@ -1,18 +1,17 @@
-# Contents 
-- 	[Context API](#)
-	-	[What is ](#)
-	-	[Create a context](#)
-	-	[Accessing context](#)
-	-	[Updating context](#)
-	-	[Creating multiple contexts](#)
-- 	[React Hooks](#)
+# Contents
 
+- [Context API](#)
+  - [What is ](#)
+  - [Create a context](#)
+  - [Accessing context](#)
+  - [Updating context](#)
+  - [Creating multiple contexts](#)
+- [Reac Hooks](#)
+- [Reducers](#)
 
 # Context API
 
-## Introduction 
-
-
+## Introduction
 
 ### What is the Context API
 
@@ -24,33 +23,33 @@ You can do the same using props, but it can get a little bit messy especially as
 
 ## Accessing Context
 
-Once the context provider is wrapping the components, there's a couple different ways we can do this. 
+Once the context provider is wrapping the components, there's a couple different ways we can do this.
 
 ### Context Type
 
 This way **can be used in a class component but not in functional components**. The way we use this is by:
 
-	import React, { Component } from "react";
-	import { ThemeContext } from "../contexts/ThemeContext";
-	
-	class Navbar extends Component {
-	  static contextType = ThemeContext;
-	  render() {
-	  ...
+    import React, { Component } from "react";
+    import { ThemeContext } from "../contexts/ThemeContext";
 
-Doing this procedure <code>this.context</code>will be set at run time to the current value of the given Context. Once the context is available: 
+    class Navbar extends Component {
+      static contextType = ThemeContext;
+      render() {
+      ...
 
-	 const { isLightTheme, light, dark } = this.context;
+Doing this procedure <code>this.context</code>will be set at run time to the current value of the given Context. Once the context is available:
+
+     const { isLightTheme, light, dark } = this.context;
 
 ### Context Consumer
 
 This approach can also be used in functional components, another benefit of this approach is you can use multiples contexts in one component. To use Context Consumer is necessary to import the context, in our case ThemeContext.
 
-	import { ThemeContext } from "../contexts/ThemeContext";
+    import { ThemeContext } from "../contexts/ThemeContext";
 
-Then is necessary wrap the content will recive the context, with the tag <code>ThemeContext.Consumer</code>. This components recive a function as child, the context is passed as function parameter. Like the example: 
+Then is necessary wrap the content will recive the context, with the tag <code>ThemeContext.Consumer</code>. This components recive a function as child, the context is passed as function parameter. Like the example:
 
-	<ThemeContext.Consumer>
+    <ThemeContext.Consumer>
         {(context) => {
           const { isLightTheme, light, dark } = context;
           const theme = isLightTheme ? light : dark;
@@ -71,14 +70,13 @@ Then is necessary wrap the content will recive the context, with the tag <code>T
 
 ## Consuming multiple contexts
 
-
 # React Hooks
 
 Hooks are basically hooks are just special functions and they allow us to do things inside functional components in react that normally we'd only be able to do inside a class components for example using state normally we could only, do that in a class component, but using a hook we can access states in functional components.
 
-There are different hooks in react which do different things, for example 
+There are different hooks in react which do different things, for example
 
-<code>useState()</code> 
+<code>useState()</code>
 Use state within a functional component.
 
 <code>useEffect()</code>
@@ -88,22 +86,20 @@ run code when a component renders (or re-renders).
 Consume context in a functional component.
 
 ### Use State
-	
-We can use useState many times as we wants inside a component, storing different values as: 
-	
-	const [songs, setSongs] = useState([
-	    { title: "Balão", id: 1 },
-	    { title: "Memento Mori", id: 2 },
-	    { title: "Non ducor duco", id: 3 },
-	  ]);
-	const [age, setAge] = useState(20);
+
+We can use useState many times as we wants inside a component, storing different values as:
+const [songs, setSongs] = useState([
+{ title: "Balão", id: 1 },
+{ title: "Memento Mori", id: 2 },
+{ title: "Non ducor duco", id: 3 },
+]);
+const [age, setAge] = useState(20);
 
 ### Use effect
 
 ## References
 
 https://www.youtube.com/playlist?list=PL4cUxeGkcC9hNokByJilPg5g9m2APUePI
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
