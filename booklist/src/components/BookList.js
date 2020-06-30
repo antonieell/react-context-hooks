@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { BookContext } from "../contexts/BookContext";
 import BookDetails from "./BookDetails";
 
 const BookList = () => {
   const { books } = useContext(BookContext);
+
+  useEffect(() => {
+    localStorage.setItem("books", JSON.stringify(books));
+  });
+
   return books.length ? (
     <div className="book-list">
       <ul>
